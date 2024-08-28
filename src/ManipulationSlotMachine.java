@@ -23,7 +23,7 @@ public class ManipulationSlotMachine {
                 sumSortSlotMachine = addBonus(sortSlotMachine, index);
             } else sumSortSlotMachine += sumScore(sortSlotMachine);
         }
-        System.out.println(sumSortSlotMachine + " PONTOS");
+        System.out.println("-------------------------\n" + sumSortSlotMachine + " PONTOS \n-------------------------");
     }
 
     public int sumScore(ContentSlotMachine[] slotMachine) {
@@ -35,9 +35,8 @@ public class ManipulationSlotMachine {
     }
 
     public int addBonus(ContentSlotMachine[] slotMachine, int index) {
-
         try {
-            while (index < slotMachine.length) {
+            while (index < slotMachine.length * difficulty) {
                 for (int subIndex = index + 1; subIndex < slotMachine.length; subIndex++)
                     if (slotMachine[index].getName().equalsIgnoreCase(slotMachine[subIndex].getName())
                             && slotMachine[index + 1].getName().equalsIgnoreCase(slotMachine[subIndex + 1].getName())) {
@@ -46,7 +45,7 @@ public class ManipulationSlotMachine {
                 index++;
             }
         } catch (Exception e) {
-            System.out.println("---------------------");
+            System.out.println("");
         }
         return 0;
     }
